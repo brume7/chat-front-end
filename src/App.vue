@@ -1,26 +1,44 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <v-app>
+    <v-toolbar color="white" height="50" app>
+      <v-toolbar-title>Messenger</v-toolbar-title>
+      <v-btn flat v-if="$store.state.token" to="/">Messages</v-btn>
+      <v-btn flat v-if="$store.state.token" to="/newmessage"
+        >New messages</v-btn
+      >
+      <v-btn flat v-if="!$store.state.token" to="/register">Register</v-btn>
+      <v-btn flat v-if="!$store.state.token" to="/login">LOGIN</v-btn>
+      <v-btn
+        flat
+        v-if="$store.state.token"
+        color="danger"
+        @click="
+          () => {
+            $store.dispatch('LOGOUT');
+            $router.push('/login');
+          }
+        "
+        >LOG OUT</v-btn
+      >
+    </v-toolbar>
+    <v-main>
+      <router-view></router-view>
+    </v-main>
+  </v-app>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import Messages from "./components/Messages.vue";
+import NewMessage from "./components/NewMessage.vue";
 
 export default {
-  name: 'App',
-  components: {
-    HelloWorld
-  }
-}
-</script>
+  name: "App",
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
+  components: {
+    Messages,
+    NewMessage,
+  },
+
+  data: () => ({}),
+};
+</script>

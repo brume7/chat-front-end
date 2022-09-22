@@ -1,5 +1,7 @@
 # vue-messages
 
+## CHAT APPLICATION MADE WITH VUE USING SIMPLE AUTHENTICATION 
+
 ## Project setup
 ```
 npm install
