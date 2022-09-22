@@ -1,6 +1,7 @@
 # vue-messages
 
 ## CHAT APPLICATION MADE WITH VUE USING SIMPLE AUTHENTICATION 
+Built to interact my private backend expressjs server
 
 ## Project setup
 ```
