@@ -2,7 +2,7 @@
 
 ## CHAT APPLICATION MADE WITH VUE USING SIMPLE AUTHENTICATION 
 Built to interact my private backend expressjs server
-and you can check the [website]().
+and you can check the [website](https://chat-app-front-end-brume.herokuapp.com/register).
 
 ## Project setup
 ```
