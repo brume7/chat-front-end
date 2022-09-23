@@ -32,7 +32,7 @@ export default {
         return "";
       } else {
         try {
-          await axios.post("http://localhost:3000/messages", {
+          await axios.post("https://chat-sever-back-end.herokuapp.com/messages", {
             message: this.messageBody,
           });
           this.$store.dispatch("GET_MESSAGES");

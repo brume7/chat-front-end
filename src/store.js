@@ -19,15 +19,15 @@ const store = createStore({
   },
   actions: {
     GET_MESSAGES: async function ({ commit }) {
-      const messages = await axios.get("http://localhost:3000/messages");
+      const messages = await axios.get("https://chat-sever-back-end.herokuapp.com/messages");
       commit('SET_MESSAGES', messages)
     },
     GET_MESSAGE: async function ({ commit }, id) {
-      return axios.get(`http://localhost:3000/messages/${id}`);
+      return axios.get(`https://chat-sever-back-end.herokuapp.com/messages/${id}`);
     },
     REGISTER: async function ({ commit }, registerData) {
       try {
-        let user = (await axios.post("http://localhost:3000/register", registerData)).data;
+        let user = (await axios.post("https://chat-sever-back-end.herokuapp.com/register", registerData)).data;
         localStorage.setItem("token", user);
         axios.defaults.headers.common['Auth'] = user;
         commit('SET_TOKEN', user);
@@ -42,7 +42,7 @@ const store = createStore({
     },
     LOGIN: async function ({ commit }, loginData) {
       try {
-        let user = (await axios.post("http://localhost:3000/login", loginData)).data;
+        let user = (await axios.post("https://chat-sever-back-end.herokuapp.com/login", loginData)).data;
         localStorage.setItem("token", user);
         axios.defaults.headers.common['Auth'] = user;
         commit('SET_TOKEN', user)
